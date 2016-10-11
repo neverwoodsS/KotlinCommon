@@ -39,4 +39,5 @@ dependencies {
     compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
     compile "org.jetbrains.anko:anko-design:$anko_version"
     compile "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
+    compile project(path: ':binding')
 }
