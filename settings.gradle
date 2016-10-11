@@ -1,1 +1,1 @@
-include ':app', ':binding', ':base'
+include ':app', ':binding', ':base', ':adapter'

@@ -1,4 +1,4 @@
-package com.zll.kotlin.adapter
+package com.zll.kotlin.adapter.list
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.BaseAdapter
 /**
  * Created by zhangll on 16/9/29.
  */
-class DslAdapter<T> : BaseAdapter() {
+class ListAdapter<T> : BaseAdapter() {
 
     lateinit var context: Context
     lateinit var dataSource: List<T>
@@ -35,10 +35,6 @@ class DslAdapter<T> : BaseAdapter() {
     }
 
     fun convert(code: (convertView: View, data: T, position: Int) -> Unit) : Unit {
-        convert = code
-    }
-
-    fun convert(type: Int, code: (convertView: View, data: T, position: Int) -> Unit) : Unit {
         convert = code
     }
 }

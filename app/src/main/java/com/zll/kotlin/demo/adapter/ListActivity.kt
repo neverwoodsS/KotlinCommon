@@ -2,14 +2,16 @@ package com.zll.kotlin.demo.adapter
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.BaseAdapter
 import com.zll.kotlin.R
 import com.zll.kotlin.adapter.adapterOf
+import com.zll.kotlin.adapter.list.ListAdapter
 import kotlinx.android.synthetic.main.activity_adapter.*
 import kotlinx.android.synthetic.main.item_list.view.*
 import org.jetbrains.anko.onClick
 import org.jetbrains.anko.toast
 
-class AdapterActivity : AppCompatActivity() {
+class ListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +20,7 @@ class AdapterActivity : AppCompatActivity() {
         val numbers: MutableList<Int> = mutableListOf(1, 2, 3)
 
         listView.adapter = adapterOf<Int> {
-            context = this@AdapterActivity
+            context = this@ListActivity
             dataSource = numbers
             layoutRes = R.layout.item_list
 
