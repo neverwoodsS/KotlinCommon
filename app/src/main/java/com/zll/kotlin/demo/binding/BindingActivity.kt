@@ -1,8 +1,9 @@
-package com.zll.kotlin
+package com.zll.kotlin.demo.binding
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.zll.hellokotlin.binding.*
+import com.zll.kotlin.R
 import kotlinx.android.synthetic.main.activity_binding.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.uiThread

@@ -1,5 +1,6 @@
-package com.zll.hellokotlin.binding
+package com.zll.kotlin.demo.binding
 
+import com.zll.hellokotlin.binding.BindObservable
 import com.zll.kotlin.R
 
 /**
