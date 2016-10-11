@@ -20,6 +20,14 @@
         android:onClick="onMultiClicked"
         android:textAllCaps="false"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginTop="10dip"
+        android:text="reuse type"
+        android:onClick="onReuseClicked"
+        android:textAllCaps="false"
+        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

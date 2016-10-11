@@ -60,4 +60,30 @@ class RecyclerActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun onReuseClicked(view: View?) {
+        val datas = mutableListOf(
+                MultiItem(1, "1"),
+                MultiItem(2, "2"),
+                MultiItem(1, "3"),
+                MultiItem(2, "4"),
+                MultiItem(1, "5")
+        )
+
+        //1
+        //如果只有一种类型, 且已经有可以复用的 delegate
+        recyclerView.adapter = adapterOfRecycler<MultiItem> {
+            dataSource = datas
+            delegate(MultiItem.DELEGATE_ONE)
+        }
+
+        //2
+        //如果不需要初始化dataSource,则只需要一行设置 delegate 的代码
+        val adapter = adapterOfRecycler<MultiItem> {
+            delegate(MultiItem.DELEGATE_ONE)
+        }
+
+        recyclerView.adapter = adapter
+        adapter.refresh(datas)//刷新数据
+    }
 }

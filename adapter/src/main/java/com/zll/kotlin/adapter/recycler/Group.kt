@@ -13,6 +13,10 @@ class Group<T> {
         delegates.put(pair.first, pair.second)
     }
 
+    fun delegate(delegate: AdapterDelegate<T>) {
+        delegates.put(0, delegate)
+    }
+
     infix fun groupBy(code: Group<T>.() -> Unit) {
         code()
     }

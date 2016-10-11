@@ -27,6 +27,10 @@ class RecyclerAdapter<T>(var context: Context? = null,
         return group
     }
 
+    fun delegate(delegate: AdapterDelegate<T>) {
+        group.delegates.put(0, delegate)
+    }
+
     fun refresh(dataSource: MutableList<T>) {
         try {
             this.dataSource = dataSource
