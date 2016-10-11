@@ -1,4 +1,4 @@
-package com.zll.hellokotlin.binding
+package com.zll.kotlin.binding
 
 import android.view.View
 import android.widget.ImageView
@@ -8,8 +8,6 @@ import org.jetbrains.anko.imageResource
 
 /**
  * Created by zhangll on 16/10/9.
- */
-/**
  * 基本绑定方法,其他绑定方法以此为基础
  */
 fun <T: View, V, B: BindObservable<V>> T.bind(observable: B, method: T.(value: V) -> Unit) {

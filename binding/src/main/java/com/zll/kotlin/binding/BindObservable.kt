@@ -1,4 +1,4 @@
-package com.zll.hellokotlin.binding
+package com.zll.kotlin.binding
 
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
