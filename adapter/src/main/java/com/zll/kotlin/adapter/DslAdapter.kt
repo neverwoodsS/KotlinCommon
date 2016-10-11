@@ -1,4 +1,4 @@
-package com.zll.hellokotlin
+package com.zll.kotlin.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,7 +11,6 @@ import android.widget.BaseAdapter
  */
 class DslAdapter<T> : BaseAdapter() {
 
-    var str = "dd"
     lateinit var context: Context
     lateinit var dataSource: List<T>
     var layoutRes: Int = -1
