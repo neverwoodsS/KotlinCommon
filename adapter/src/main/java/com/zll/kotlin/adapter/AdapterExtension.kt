@@ -3,7 +3,7 @@ package com.zll.kotlin.adapter
 import android.content.Context
 import android.view.View
 import com.zll.kotlin.adapter.list.ListAdapter
-import com.zll.kotlin.adapter.recycler.KAdapterDelegate
+import com.zll.kotlin.adapter.recycler.AdapterDelegate
 import com.zll.kotlin.adapter.recycler.RecyclerAdapter
 
 /**
@@ -39,8 +39,8 @@ fun <T> adapterOfRecycler(code: RecyclerAdapter<T>.() -> Unit) : RecyclerAdapter
     return adapter
 }
 
-fun <T> delegateOf(code: KAdapterDelegate<T>.() -> Unit) : KAdapterDelegate<T> {
-    val delegate = KAdapterDelegate<T>()
+fun <T> delegateOf(code: AdapterDelegate<T>.() -> Unit) : AdapterDelegate<T> {
+    val delegate = AdapterDelegate<T>()
     code(delegate)
     return delegate
 }

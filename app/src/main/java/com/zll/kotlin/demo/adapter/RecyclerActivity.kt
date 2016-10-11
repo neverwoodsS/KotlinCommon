@@ -6,15 +6,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.zll.kotlin.R
 import com.zll.kotlin.adapter.adapterOfRecycler
-import com.zll.kotlin.adapter.delegateOf
-import com.zll.kotlin.adapter.recycler.AdapterDelegate
-import com.zll.kotlin.adapter.recycler.KAdapterDelegate
-import com.zll.kotlin.adapter.recycler.RecyclerViewHolder
 import kotlinx.android.synthetic.main.activity_recycler.*
 import kotlinx.android.synthetic.main.item_list.view.*
-import kotlinx.android.synthetic.main.item_multi_type_one.view.*
-import kotlinx.android.synthetic.main.item_multi_type_two.view.*
-import org.jetbrains.anko.imageResource
 import org.jetbrains.anko.onClick
 import org.jetbrains.anko.toast
 

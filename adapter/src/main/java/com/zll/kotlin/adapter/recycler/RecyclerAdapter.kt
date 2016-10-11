@@ -19,7 +19,7 @@ class RecyclerAdapter<T>(var context: Context? = null,
     var group = Group<T>()
 
     fun convert(code: (convertView: View, data: T, position: Int) -> Unit) : Unit {
-        group.delegates.put(0, KAdapterDelegate(layoutRes, code))
+        group.delegates.put(0, AdapterDelegate(layoutRes, code))
     }
 
     fun typeFrom(code: (T) -> Int) : Group<T> {
