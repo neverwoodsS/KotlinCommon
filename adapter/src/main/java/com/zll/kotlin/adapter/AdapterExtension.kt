@@ -9,32 +9,34 @@ import com.zll.kotlin.adapter.recycler.RecyclerAdapter
 /**
  * Created by zhangll on 16/10/11.
  */
-fun <T> adapterOf(context: Context, dataSource: MutableList<T>, layoutRes: Int, code: (convertView: View, data: T, position: Int) -> Unit) : ListAdapter<T> {
+fun <T> Context.adapterOf(dataSource: MutableList<T>, layoutRes: Int, code: (convertView: View, data: T, position: Int) -> Unit) : ListAdapter<T> {
     val adapter = ListAdapter<T>()
-    adapter.context = context
+    adapter.context = this
     adapter.dataSource = dataSource
     adapter.layoutRes = layoutRes
     adapter.convert = code
     return adapter
 }
 
-fun <T> adapterOf(code: ListAdapter<T>.() -> Unit) : ListAdapter<T> {
+fun <T> Context.adapterOf(code: ListAdapter<T>.() -> Unit) : ListAdapter<T> {
     val adapter = ListAdapter<T>()
+    adapter.context = this
     code(adapter)
     return adapter
 }
 
-fun <T> adapterOfRecycler(context: Context, dataSource: MutableList<T>, layoutRes: Int = 0, code: (convertView: View, data: T, position: Int) -> Unit) : RecyclerAdapter<T> {
+fun <T> Context.adapterOfRecycler(dataSource: MutableList<T>, layoutRes: Int = 0, code: (convertView: View, data: T, position: Int) -> Unit) : RecyclerAdapter<T> {
     val adapter = RecyclerAdapter<T>()
-    adapter.context = context
+    adapter.context = this
     adapter.dataSource = dataSource
     adapter.layoutRes = layoutRes
     adapter.convert(code)
     return adapter
 }
 
-fun <T> adapterOfRecycler(code: RecyclerAdapter<T>.() -> Unit) : RecyclerAdapter<T> {
+fun <T> Context.adapterOfRecycler(code: RecyclerAdapter<T>.() -> Unit) : RecyclerAdapter<T> {
     val adapter = RecyclerAdapter<T>()
+    adapter.context = this
     code(adapter)
     return adapter
 }

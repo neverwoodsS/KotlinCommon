@@ -2,10 +2,8 @@ package com.zll.kotlin.demo.adapter
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.BaseAdapter
 import com.zll.kotlin.R
 import com.zll.kotlin.adapter.adapterOf
-import com.zll.kotlin.adapter.list.ListAdapter
 import kotlinx.android.synthetic.main.activity_adapter.*
 import kotlinx.android.synthetic.main.item_list.view.*
 import org.jetbrains.anko.onClick
@@ -20,7 +18,6 @@ class ListActivity : AppCompatActivity() {
         val numbers: MutableList<Int> = mutableListOf(1, 2, 3)
 
         listView.adapter = adapterOf<Int> {
-            context = this@ListActivity
             dataSource = numbers
             layoutRes = R.layout.item_list
 
@@ -32,7 +29,7 @@ class ListActivity : AppCompatActivity() {
 
         //or
 
-        listView.adapter = adapterOf(this, numbers, R.layout.item_list) {
+        listView.adapter = adapterOf(numbers, R.layout.item_list) {
             convertView, data, position ->
             convertView.itemTv?.text = data.toString()
             convertView.itemTv?.onClick { toast("clicked at $position")}

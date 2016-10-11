@@ -23,7 +23,6 @@ class RecyclerActivity : AppCompatActivity() {
         val numbers = mutableListOf(1,2,3)
 
         recyclerView.adapter = adapterOfRecycler<Int> {
-            context = this@RecyclerActivity
             dataSource = numbers
             layoutRes = R.layout.item_list
 
@@ -35,7 +34,7 @@ class RecyclerActivity : AppCompatActivity() {
 
         //or
 
-        recyclerView.adapter = adapterOfRecycler(this, numbers, R.layout.item_list) {
+        recyclerView.adapter = adapterOfRecycler(numbers, R.layout.item_list) {
             convertView, data, position ->
             convertView.itemTv?.text = data.toString()
             convertView.itemTv?.onClick { toast("clicked at $position")}
@@ -52,7 +51,6 @@ class RecyclerActivity : AppCompatActivity() {
         )
 
         recyclerView.adapter = adapterOfRecycler<MultiItem> {
-            context = this@RecyclerActivity
             dataSource = datas
 
             typeFrom { it.type } groupBy {
