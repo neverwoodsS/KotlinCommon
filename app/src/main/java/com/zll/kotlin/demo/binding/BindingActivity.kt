@@ -34,20 +34,16 @@ class BindingActivity : AppCompatActivity() {
             bindBackgroundResource(viewModel.backGroundResource)
         }
 
+        //延时5秒修改 viewModel 中的值
         async() {
             Thread.sleep(5000)
             uiThread {
-                change(viewModel)
+                with(viewModel) {
+                    text.set("changed")
+                    backGroundResource.set(android.R.color.darker_gray)
+                    imageResource.set(android.R.color.black)
+                }
             }
-        }
-    }
-
-    fun change(viewModel: ViewModel) {
-        //修改 viewModel 中的值
-        with(viewModel) {
-            text.set("changed")
-            backGroundResource.set(android.R.color.darker_gray)
-            imageResource.set(android.R.color.black)
         }
     }
 }
