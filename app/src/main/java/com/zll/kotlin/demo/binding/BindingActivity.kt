@@ -17,19 +17,19 @@ class BindingActivity : AppCompatActivity() {
         val viewModel = ViewModel()
 
         //基础绑定,具体绑定方法自己实现
-        contentTv.bind(viewModel.text) { text = it }
+        textView.bind(viewModel.text) { text = it }
 
         //有针对性的调用绑定方法
-        contentTv.bindText(viewModel.text)
+        textView.bindText(viewModel.text)
 
         //使用 with 等方法,让绑定实现的代码看上去更优雅
         //支持 anko 中使用
-        with(contentTv) {
+        with(textView) {
             bindText(viewModel.text)
             bindBackgroundResource(viewModel.backGroundResource)
         }
 
-        with(testIv) {
+        with(imageView) {
             bindImageResource(viewModel.imageResource)
             bindBackgroundResource(viewModel.backGroundResource)
         }
