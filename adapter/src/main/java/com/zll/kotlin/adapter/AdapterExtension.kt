@@ -18,7 +18,7 @@ fun <T> Context.adapterOf(dataSource: MutableList<T>, layoutRes: Int, code: (con
     return adapter
 }
 
-fun <T> Context.adapterOf(code: ListAdapter<T>.() -> Unit) : ListAdapter<T> {
+inline fun <T> Context.adapterOf(code: ListAdapter<T>.() -> Unit) : ListAdapter<T> {
     val adapter = ListAdapter<T>()
     adapter.context = this
     code(adapter)
@@ -34,14 +34,14 @@ fun <T> Context.adapterOfRecycler(dataSource: MutableList<T>, layoutRes: Int = 0
     return adapter
 }
 
-fun <T> Context.adapterOfRecycler(code: RecyclerAdapter<T>.() -> Unit) : RecyclerAdapter<T> {
+inline fun <T> Context.adapterOfRecycler(code: RecyclerAdapter<T>.() -> Unit) : RecyclerAdapter<T> {
     val adapter = RecyclerAdapter<T>()
     adapter.context = this
     code(adapter)
     return adapter
 }
 
-fun <T> delegateOf(code: AdapterDelegate<T>.() -> Unit) : AdapterDelegate<T> {
+inline fun <T> delegateOf(code: AdapterDelegate<T>.() -> Unit) : AdapterDelegate<T> {
     val delegate = AdapterDelegate<T>()
     code(delegate)
     return delegate
