@@ -1,25 +1,13 @@
 package com.zll.kotlin.binding
 
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
-
 /**
  * Created by zhangll on 16/10/9.
  */
-class BindObservable<T> (val default: T)
-: ReadWriteProperty<Any?, T> {
-
-    var value : T? = null
+class BindObservable<T> (val default: T) {
+    var value : T = default
     val subscribers: MutableList<((T) -> Unit)> = mutableListOf()
 
-    override fun getValue(thisRef: Any?, property: KProperty<*>): T {
-        return value!!
-    }
-
-    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
-        this.value = value
-        subscribers.forEach { it.invoke(value) }
-    }
+    fun get(): T = value
 
     fun set(value: T) {
         this.value = value
