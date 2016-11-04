@@ -32,7 +32,7 @@ class RecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun <T> setOnItemClickListener(viewId: Int,
                                    data: T,
                                    position: Int,
-                                   onItemClickListener: RecyclerAdapter.OnItemClickListener<T>) {
+                                   onItemClickListener: OnItemClickListener<T>) {
         val view = if (viewId == 0) itemView else getChildView<View>(viewId)
         view?.setOnClickListener { onItemClickListener.onItemClicked(view, data, position) }
     }

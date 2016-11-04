@@ -56,7 +56,6 @@ class RecyclerActivity : AppCompatActivity() {
             typeFrom { it.type } groupBy {
                 delegate(1 to MultiItem.DELEGATE_ONE)
                 delegate(2 to MultiItem.DELEGATE_TWO)
-                delegate(3 to MultiItem.DELEGATE_THREE)
             }
         }
     }

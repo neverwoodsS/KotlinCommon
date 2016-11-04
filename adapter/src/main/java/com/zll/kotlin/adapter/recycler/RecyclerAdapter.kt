@@ -49,23 +49,21 @@ class RecyclerAdapter<T>(var context: Context,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
-        val inflater = LayoutInflater.from(context)
         if (group.delegates.size() == 0) {
+            val inflater = LayoutInflater.from(context)
             return RecyclerViewHolder(inflater.inflate(layoutRes,
                     parent,
                     false))
         } else {
             println("this type = " + viewType)
-            return RecyclerViewHolder(inflater.inflate(group.delegates.get(viewType).layoutRes,
-                    parent,
-                    false))
+            return RecyclerViewHolder(group.delegates.get(viewType).view.invoke())
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val data = dataSource[position]
         val delegate = group.delegates.get(getItemViewType(position))
-        delegate.code?.invoke(holder.itemView, data, position)
+        delegate.code.invoke(holder.itemView, data, position)
         setListeners(holder, data, position)
     }
 
@@ -84,9 +82,5 @@ class RecyclerAdapter<T>(var context: Context,
             val onItemClickListener = listeners.valueAt(i)
             holder.setOnItemClickListener(viewId, data, position, onItemClickListener)
         }
-    }
-
-    interface OnItemClickListener<T> {
-        fun onItemClicked(view: View, data: T, position: Int)
     }
 }
