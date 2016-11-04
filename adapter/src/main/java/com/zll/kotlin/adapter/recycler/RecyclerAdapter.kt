@@ -10,13 +10,13 @@ import android.view.ViewGroup
 /**
  * Created by zhangll on 16/10/11.
  */
-class RecyclerAdapter<T>(var context: Context? = null,
+class RecyclerAdapter<T>(var context: Context,
                          var dataSource: MutableList<T> = mutableListOf(),
                          var layoutRes: Int = 0)
 : RecyclerView.Adapter<RecyclerViewHolder>() {
 
     protected var listeners = SparseArray<OnItemClickListener<T>>()
-    var group = Group<T>()
+    var group = Group<T>(context)
 
     fun convert(code: (convertView: View, data: T, position: Int) -> Unit) : Unit {
         group.delegates.put(0, AdapterDelegate(layoutRes, code))
