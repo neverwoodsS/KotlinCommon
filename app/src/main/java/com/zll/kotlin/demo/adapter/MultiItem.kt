@@ -1,5 +1,6 @@
 package com.zll.kotlin.demo.adapter
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.Gravity
 import android.view.View
@@ -16,6 +17,7 @@ import org.jetbrains.anko.*
 class MultiItem(val type: Int, val text: String) {
 
     companion object DELEGATES {
+        @SuppressLint("StaticFieldLeak")
         val DELEGATE_ONE = delegateOf<MultiItem> {
             view {
                 View.inflate(context, R.layout.item_multi_type_one, null)
@@ -27,6 +29,7 @@ class MultiItem(val type: Int, val text: String) {
             }
         }
 
+        @SuppressLint("StaticFieldLeak")
         val DELEGATE_TWO = delegateOf<MultiItem> {
             view {
                 UI {
